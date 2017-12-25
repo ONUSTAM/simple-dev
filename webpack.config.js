@@ -1,12 +1,13 @@
 let browserSyncPlugin = require('browser-sync-webpack-plugin');
 let webpack = require('webpack');
+let version = require('./package.json').version
 
 const APP = 'app.js'
 const APP_INDEX = 'app.index.js'
 const APP_PATH = 'app/'
 const BUILD_PATH = './dist'
 const SRC_PATH = './src/js/'
-const VERSION_NUMBER = '.00.01.js'
+const VERSION_NUMBER = '.' + version
 
 module.exports = {
   watch: true,
@@ -15,7 +16,7 @@ module.exports = {
     'js/app': SRC_PATH + APP_PATH + APP
   },
   output: {
-    filename: '[name]' + VERSION_NUMBER,
+    filename: '[name]' + VERSION_NUMBER + '.js',
     publicPath: ''
   },
   module: {
