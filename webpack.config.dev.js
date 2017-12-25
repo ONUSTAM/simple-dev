@@ -1,8 +1,8 @@
 let browserSyncPlugin = require('browser-sync-webpack-plugin');
 let webpack = require('webpack');
 
-const APP = 'seed.js'
-const APP_INDEX = 'seed.index.js'
+const APP = 'app.js'
+const APP_INDEX = 'app.index.js'
 const APP_PATH = 'app/'
 const BUILD_PATH = './dist'
 const SRC_PATH = './src/js/'
@@ -11,8 +11,8 @@ const VERSION_NUMBER = '.00.01.js'
 module.exports = {
   watch: true,
   entry: {
-    'js/seed.index': SRC_PATH + APP_PATH + APP_INDEX,
-    'js/seed': SRC_PATH + APP_PATH + APP
+    'js/app.index': SRC_PATH + APP_PATH + APP_INDEX,
+    'js/app': SRC_PATH + APP_PATH + APP
   },
   output: {
     filename: '[name]' + VERSION_NUMBER,
