@@ -13,3 +13,6 @@ gulp-webpack3-sassの簡単なプロジェクト
 
 ## release gulp
       $ gulp prod
+
+## memo
+app.index.jsは「src/www」配下に配置する.htmlファイルをビルドするのに使用します。  
