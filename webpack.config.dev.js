@@ -61,19 +61,24 @@ module.exports = {
     ],
   },
   plugins: [
-    // ミニファイ
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        // console.log（）などのconsole.*系の記述を取り除いて出力する
-        drop_console: true
-      }
-    }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
       Popper: ['popper.js', 'default'],// Bootstrap4対応
       Tether: 'tether'
+    }),
+    new browserSyncPlugin({
+      host: 'localhost',
+      port: 3000,
+      files: BUILD_PATH + "/**/*",
+      server: {
+        "baseDir": BUILD_PATH,
+        "middleware": function(req, res, next){
+          let timestamp = "[" + new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '') + "] ";
+          next();
+        }
+      }
     })
   ]
 }
