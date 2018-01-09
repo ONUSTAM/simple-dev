@@ -33,7 +33,15 @@ module.exports = {
       },
       {
         test: /\.html/,
-        // loaders: ['html-loader']
+        loader: 'html-loader',
+        options: {
+          name: './[name].[ext]'
+        }
+      },
+      // htmlとして吐き出したいファイルは「/src/www」配下に設定してください
+      {
+        test: /\.html/,
+        exclude: /assets/,
         loader: 'file-loader',
         options: {
           name: './[name].[ext]'
